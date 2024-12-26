@@ -16,7 +16,7 @@ class CustomDrawer extends StatelessWidget {
           children: [
             // Header Section
             Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(12.0),
               child: DrawerHeader(
                 decoration: const BoxDecoration(color: Colors.white),
                 child: Column(
