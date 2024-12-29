@@ -1,35 +1,38 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:sizer/sizer.dart';
+import 'package:xm_trades/app/config/color.dart';
+import 'package:xm_trades/app/custom_widgets/custom_appBar.dart';
 
 import '../../../custom_widgets/custom_drawer.dart';
+import '../../../routes/app_pages.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
   const HomeView({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[200],
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 1,
-        title: Text(
-          'xmtrade',
-          style: TextStyle(color: Colors.black, fontSize: 16),
-        ),
-        actions: const [
-          CircleAvatar(
-            backgroundColor: Colors.red,
-            child: Text(
-              'AM',
-              style: TextStyle(color: Colors.white),
+      drawer: const CustomDrawer(),
+      appBar:  CustomAppbar(
+        title: 'XM Trades',
+        actions: [
+          GestureDetector(
+            onTap: (){Get.toNamed(Routes.PROFILE_SETTING);},
+            child: CircleAvatar(
+              backgroundColor: Colors.red,
+              child: Text(
+                'AM',
+                style: TextStyle(color: Colors.white),
+              ),
             ),
           ),
-          SizedBox(width: 16),
+          SizedBox(width:4.w),
         ],
       ),
-      drawer: const CustomDrawer(),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
@@ -49,10 +52,10 @@ class HomeView extends GetView<HomeController> {
 
   Widget _buildCard(String title) {
     return Card(
-      color: Colors.black,
+      color: AppColors.black,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
-        side: BorderSide(color: Colors.orange, width: 2),
+        side: BorderSide(color: AppColors.grey, width: 2),
       ),
       child: Padding(
         padding: const EdgeInsets.all(16.0),

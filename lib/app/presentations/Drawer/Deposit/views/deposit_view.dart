@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+import 'package:xm_trades/app/config/color.dart';
+import 'package:xm_trades/app/custom_widgets/custom_appBar.dart';
 
+import '../../../../custom_widgets/custom_text_field.dart';
 import '../controllers/deposit_controller.dart';
 
 class DepositView extends GetView<DepositController> {
@@ -14,10 +17,8 @@ class DepositView extends GetView<DepositController> {
         init: DepositController(),
         builder: (controller) {
           return Scaffold(
-            appBar: AppBar(
-              title: Text('Deposit Funds'),
-              backgroundColor: Colors.red,
-            ),
+            backgroundColor: AppColors.white,
+            appBar:CustomAppbar(title: 'Deposit Funds',),
             body: SingleChildScrollView(
               physics: PageScrollPhysics(),
               child: Padding(
@@ -40,10 +41,12 @@ class DepositView extends GetView<DepositController> {
                       child: ElevatedButton(
                         onPressed: () {},
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.red,
+                          backgroundColor: AppColors.red,
                           foregroundColor: Colors.white,
                           fixedSize: Size(50.w, 5.h), // 70% width, 6% height
-                          shape: const BeveledRectangleBorder(side: BorderSide(color: Colors.black, width: 1)),
+                          shape: BeveledRectangleBorder(
+                              borderRadius: BorderRadius.circular(2),
+                              side: BorderSide(color: Colors.black, width: 1)),
                         ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -61,8 +64,8 @@ class DepositView extends GetView<DepositController> {
                     SizedBox(height: 2.h),
                     Card(
                       child: Container(
-                        height: 40.h,
-                        decoration: BoxDecoration(color: Colors.black, borderRadius: BorderRadius.circular(16)),
+                        height: 35.h,
+                        decoration: BoxDecoration(color: AppColors.black, borderRadius: BorderRadius.circular(16)),
                         child: Padding(
                           padding: const EdgeInsets.all(16.0),
                           child: Column(
@@ -78,8 +81,8 @@ class DepositView extends GetView<DepositController> {
                                 dropdownColor: Colors.white,
                                 style: TextStyle(color: Colors.black),
                                 decoration: InputDecoration(
-                                  border: OutlineInputBorder(),
-                                  filled: true,
+                                  border: OutlineInputBorder(borderSide: BorderSide.none),
+                                  filled: true,constraints:BoxConstraints(maxHeight: 6.h),
                                   fillColor: Colors.white,
                                 ),
                                 items: controller.gateways.map((String gateway) {
@@ -93,29 +96,29 @@ class DepositView extends GetView<DepositController> {
                                 },
                               ),
                               SizedBox(height: 20),
-                              TextField(
+                              CustomTextFormField(
                                 controller: controller.amountController,
-                                keyboardType: TextInputType.numberWithOptions(),
-                                decoration: InputDecoration(
-                                  border: OutlineInputBorder(),
-                                  hintText: 'Amount',
-                                  hintStyle: TextStyle(color: Colors.black),
-                                  suffixText: 'USDT',
-                                  suffixStyle: TextStyle(color: Colors.black,fontSize: 18) ,
-                                  filled: true,
-                                  fillColor: Colors.white,
+                                keyboardType: TextInputType.phone,
+                                width: 85.w,
+                                height: 6.h,
+                                hintText: "Amount",
+                                fieldstyle: const TextStyle(color: AppColors.black, fontSize: 16),
+                                fillColor: AppColors.white,
+                                border: OutlineInputBorder(
+                                    borderSide: BorderSide.none
                                 ),
-                                style: TextStyle(color: Colors.black),
                               ),
                               SizedBox(height: 20),
                               Center(
                                 child: ElevatedButton(
                                   onPressed: () {},
                                   style: ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.black,
+                                    backgroundColor: AppColors.black,
                                     foregroundColor: Colors.white,
                                     fixedSize: Size(80.w, 5.h), // 70% width, 6% height
-                                    shape: const BeveledRectangleBorder(side: BorderSide(color: Colors.red, width: 1)),
+                                    shape: BeveledRectangleBorder(
+                                        borderRadius: BorderRadius.circular(2),
+                                        side: BorderSide(color: AppColors.red, width: 1)),
                                   ),
                                   child: Text('Submit'),
                                 ),

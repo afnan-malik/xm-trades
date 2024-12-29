@@ -1,6 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:sizer/sizer.dart';
+import 'package:xm_trades/app/config/color.dart';
+import 'package:xm_trades/app/custom_widgets/custom_appBar.dart';
 import 'package:xm_trades/app/custom_widgets/custom_invest_plans.dart';
 
 class InvestmentPlans extends StatelessWidget {
@@ -16,21 +16,10 @@ class InvestmentPlans extends StatelessWidget {
     ];
 
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-          title: Text(
-        "Investment plans",
-        style: TextStyle(fontSize: 16),
-      )),
+      backgroundColor: AppColors.white,
+      appBar: CustomAppbar(title: 'Investment Plans'),
       body: Column(
         children: [
-          Text(
-            "Investment Plan",
-            style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-          ),
-          SizedBox(
-            height: 3.h,
-          ),
       Expanded(
         child: ListView.builder(
           itemCount: plans.length,

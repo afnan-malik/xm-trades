@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+import 'package:xm_trades/app/config/color.dart';
+import 'package:xm_trades/app/custom_widgets/custom_appBar.dart';
 import 'package:xm_trades/app/presentations/Drawer/investment/views/content/investment_plans.dart';
 
 import '../../../../routes/app_pages.dart';
@@ -12,16 +14,8 @@ class InvestmentView extends GetView<InvestmentController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        iconTheme: const IconThemeData(color: Colors.black),
-        title: const Text(
-          "Investment",
-          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
-        ),
-      ),
+      backgroundColor: AppColors.white,
+      appBar: CustomAppbar(title: 'Investment',),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -37,7 +31,7 @@ class InvestmentView extends GetView<InvestmentController> {
             Container(
               padding: const EdgeInsets.all(16.0),
               decoration: BoxDecoration(
-                color: Colors.black,
+                color: AppColors.black,
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Column(
@@ -84,11 +78,11 @@ class InvestmentView extends GetView<InvestmentController> {
                           ElevatedButton(
                             onPressed: () {Get.to(const InvestmentPlans());},
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.black,
+                              backgroundColor: AppColors.black,
                               foregroundColor: Colors.white,
                               fixedSize: Size(40.w, 5.h), // 70% of screen width and 6% of screen height
                               shape: const BeveledRectangleBorder(
-                                  side: BorderSide(color: Colors.red, width: 1)),
+                                  side: BorderSide(color: AppColors.red, width: 1)),
                             ),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -105,11 +99,11 @@ class InvestmentView extends GetView<InvestmentController> {
                               Get.toNamed(Routes.WITH_DRAW);
                             },
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.red,
+                              backgroundColor: AppColors.red,
                               foregroundColor: Colors.white,
                               fixedSize: Size(40.w, 5.h), // 70% width, 6% height
                               shape: const BeveledRectangleBorder(
-                                  side: BorderSide(color: Colors.red, width: 1)),
+                                  side: BorderSide(color: AppColors.red, width: 1)),
                             ),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -132,7 +126,7 @@ class InvestmentView extends GetView<InvestmentController> {
             Container(
               padding: const EdgeInsets.all(16.0),
               decoration: BoxDecoration(
-                color: Colors.black,
+                color: AppColors.black,
                 borderRadius: BorderRadius.circular(12),
               ),
               child: const Center(

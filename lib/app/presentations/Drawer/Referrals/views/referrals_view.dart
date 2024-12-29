@@ -3,7 +3,9 @@ import 'package:flutter/services.dart';
 
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+import 'package:xm_trades/app/custom_widgets/custom_appBar.dart';
 
+import '../../../../config/color.dart';
 import '../controllers/referrals_controller.dart';
 
 class ReferralsView extends GetView<ReferralsController> {
@@ -11,23 +13,23 @@ class ReferralsView extends GetView<ReferralsController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        title: const Text('My Referrals'),
-        backgroundColor: Colors.lightGreen[100],
-        elevation: 0,
-      ),
+      backgroundColor: AppColors.white,
+      appBar:CustomAppbar(title: 'My Referals'),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-          Text("My Referrals",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),),
+          Text("My Referrals",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,color: AppColors.grey),),
             SizedBox(height: 2.h,),
             Container(
               padding: const EdgeInsets.all(16.0),
               decoration: BoxDecoration(
-                color: Colors.black,
+                gradient: const LinearGradient(
+                  colors: [AppColors.red, AppColors.red2],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ),
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Column(

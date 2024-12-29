@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+import 'package:xm_trades/app/config/color.dart';
+import 'package:xm_trades/app/custom_widgets/custom_appBar.dart';
 
+import '../../../../custom_widgets/custom_text_field.dart';
 import '../controllers/with_draw_controller.dart';
 
 
@@ -15,11 +18,8 @@ class WithDrawView extends GetView<WithDrawController> {
         init: WithDrawController(),
         builder: (controller) {
           return Scaffold(
-            backgroundColor: Colors.white,
-            appBar: AppBar(
-              title: Text('Withdraw Funds'),
-              backgroundColor: Colors.red,
-            ),
+            backgroundColor: AppColors.white,
+            appBar:CustomAppbar(title: 'Withdraw Funds',),
             body: SingleChildScrollView(
               physics: PageScrollPhysics(),
               child: Padding(
@@ -42,10 +42,10 @@ class WithDrawView extends GetView<WithDrawController> {
                       child: ElevatedButton(
                         onPressed: () {},
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.red,
+                          backgroundColor: AppColors.red,
                           foregroundColor: Colors.white,
                           fixedSize: Size(50.w, 5.h), // 70% width, 6% height
-                          shape: const BeveledRectangleBorder(side: BorderSide(color: Colors.black, width: 1)),
+                          shape: const BeveledRectangleBorder(side: BorderSide(color:AppColors.black, width: 1)),
                         ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -64,7 +64,7 @@ class WithDrawView extends GetView<WithDrawController> {
                     Card(
                       child: Container(
                         height: 40.h,
-                        decoration: BoxDecoration(color: Colors.black, borderRadius: BorderRadius.circular(16)),
+                        decoration: BoxDecoration(color: AppColors.black, borderRadius: BorderRadius.circular(16)),
                         child: Padding(
                           padding: const EdgeInsets.all(16.0),
                           child: Column(
@@ -80,8 +80,8 @@ class WithDrawView extends GetView<WithDrawController> {
                                 dropdownColor: Colors.white,
                                 style: TextStyle(color: Colors.black),
                                 decoration: InputDecoration(
-                                  border: OutlineInputBorder(),
-                                  filled: true,
+                                  border: OutlineInputBorder(borderSide: BorderSide.none),
+                                  filled: true,constraints: BoxConstraints(maxHeight: 6.h),
                                   fillColor: Colors.white,
                                 ),
                                 items: controller.gateways.map((String gateway) {
@@ -95,29 +95,29 @@ class WithDrawView extends GetView<WithDrawController> {
                                 },
                               ),
                               SizedBox(height: 20),
-                              TextField(
-                                controller: controller.amountController,
-                                keyboardType: TextInputType.numberWithOptions(),
-                                decoration: InputDecoration(
-                                  border: OutlineInputBorder(),
-                                  hintText: 'Amount',
-                                  hintStyle: TextStyle(color: Colors.black),
-                                  suffixText: 'USDT',
-                                  suffixStyle: TextStyle(color: Colors.black,fontSize: 18) ,
-                                  filled: true,
-                                  fillColor: Colors.white,
-                                ),
-                                style: TextStyle(color: Colors.black),
+                            CustomTextFormField(
+                              controller: controller.amountController,
+                              keyboardType: TextInputType.phone,
+                              width: 85.w,
+                              height: 6.h,
+                              hintText: "Amount",
+                              suffixText: 'USTD',
+                              sufficColor: AppColors.black,
+                              fieldstyle: const TextStyle(color: AppColors.black, fontSize: 16),
+                              fillColor: AppColors.white,
+                              border: OutlineInputBorder(
+                                  borderSide: BorderSide.none
                               ),
-                              SizedBox(height: 20),
+                            ),
+                              SizedBox(height: 30),
                               Center(
                                 child: ElevatedButton(
                                   onPressed: () {},
                                   style: ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.black,
+                                    backgroundColor: AppColors.black,
                                     foregroundColor: Colors.white,
                                     fixedSize: Size(80.w, 5.h), // 70% width, 6% height
-                                    shape: const BeveledRectangleBorder(side: BorderSide(color: Colors.red, width: 1)),
+                                    shape: const BeveledRectangleBorder(side: BorderSide(color: AppColors.red, width: 1)),
                                   ),
                                   child: Text('Submit'),
                                 ),

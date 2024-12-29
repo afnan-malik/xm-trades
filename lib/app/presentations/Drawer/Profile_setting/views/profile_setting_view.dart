@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+import 'package:xm_trades/app/config/color.dart';
+import 'package:xm_trades/app/custom_widgets/custom_appBar.dart';
+import 'package:xm_trades/app/custom_widgets/custom_text_field.dart';
 
 import '../controllers/profile_setting_controller.dart';
 
@@ -10,10 +13,7 @@ class ProfileSettingView extends GetView<ProfileSettingController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('ProfileSettingView'),
-        centerTitle: true,
-      ),
+      appBar:CustomAppbar(title: 'Profile Setting',),
       body:  SingleChildScrollView(
         child: Column(
           children: [
@@ -22,7 +22,7 @@ class ProfileSettingView extends GetView<ProfileSettingController> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text("Profile",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),),
+                  Text("Profile",style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold,color: AppColors.black),),
                  GestureDetector (
                    onTap: (){},
                     child: CircleAvatar(
@@ -39,171 +39,124 @@ class ProfileSettingView extends GetView<ProfileSettingController> {
             Center(
               child: Card(
                 child: Container(
-                  decoration: BoxDecoration(color: Colors.black, borderRadius: BorderRadius.circular(16)),
+                  decoration: BoxDecoration(color: AppColors.black, borderRadius: BorderRadius.circular(16)),
                   child: Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text(
-                          'Full Name ',
-                          style: TextStyle(color: Colors.grey, fontSize: 16),
-                        ),
-                         TextField(
+                        CustomTextFormField(
                           controller: controller.nameController,
-                          decoration: const InputDecoration(
-                            border: OutlineInputBorder(
-                                borderSide: BorderSide.none
-                            ),
-                            hintText: 'Full Name',
-                            hintStyle: TextStyle(color: Colors.grey),
-                            suffixStyle: TextStyle(color: Colors.black,fontSize: 18) ,
-                            filled: true,
-                            fillColor: Colors.white,
+                          label: 'Full Name',
+                          width: 85.w,
+                          height: 6.h,
+                          hintText: "Name",
+                          fieldstyle: const TextStyle(color: AppColors.black, fontSize: 16),
+                          fillColor: AppColors.white,
+                          border: OutlineInputBorder(
+                              borderSide: BorderSide.none
                           ),
-                          style: const TextStyle(color: Colors.black),
                         ),
                         SizedBox(height: 2.h),
-                        const Text(
-                          'E-Mail Address',
-                          style: TextStyle(color: Colors.grey, fontSize: 16),
-                        ),
-                        const TextField(
-                          decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                                borderSide: BorderSide.none
-                            ),
-                            hintText: 'E-Mail Address',
-                            hintStyle: TextStyle(color: Colors.grey),
-                            suffixStyle: TextStyle(color: Colors.black,fontSize: 18) ,
-                            filled: true,
-                            fillColor: Colors.white,
+                        CustomTextFormField(
+                          controller: controller.emailController,
+                          label: 'Email address',
+                          width: 85.w,
+                          height: 6.h,
+                          hintText: "E Mail Address",
+                          fieldstyle: const TextStyle(color: AppColors.black, fontSize: 16),
+                          fillColor: AppColors.white,
+                          border: OutlineInputBorder(
+                              borderSide: BorderSide.none
                           ),
-                          style: TextStyle(color: Colors.black),
                         ),
                         SizedBox(height: 2.h),
-                        const Text(
-                          '  Mobile Number',
-                          style: TextStyle(color: Colors.grey, fontSize: 16),
-                        ),
-                         TextField(
+                        CustomTextFormField(
                           controller: controller.numberController,
-                          decoration: const InputDecoration(
-                            border: OutlineInputBorder(
-                                borderSide: BorderSide.none
-                            ),
-                            hintText: 'Mobile Number',
-                            hintStyle: TextStyle(color: Colors.grey),
-                            suffixStyle: TextStyle(color: Colors.black,fontSize: 18) ,
-                            filled: true,
-                            fillColor: Colors.white,
+                          label: 'Mobile Number',
+                          width: 85.w,
+                          height: 6.h,
+                          hintText: "Mobile number",
+                          fieldstyle: const TextStyle(color: AppColors.black, fontSize: 16),
+                          fillColor: AppColors.white,
+                          border: OutlineInputBorder(
+                              borderSide: BorderSide.none
                           ),
-                          style: const TextStyle(color: Colors.black),
                         ),
                         SizedBox(height: 2.h),
-                        const Text(
-                          'Address',
-                          style: TextStyle(color: Colors.grey, fontSize: 16),
-                        ),
-                         TextField(
+                        CustomTextFormField(
                           controller: controller.addressController,
-                          decoration: const InputDecoration(
-                            border: OutlineInputBorder(
-                                borderSide: BorderSide.none
-                            ),
-                            hintText: 'Address',
-                            hintStyle: TextStyle(color: Colors.grey),
-                            suffixStyle: TextStyle(color: Colors.black,fontSize: 18) ,
-                            filled: true,
-                            fillColor: Colors.white,
+                          label: 'Address',
+                          width: 85.w,
+                          height: 6.h,
+                          hintText: " Address",
+                          fieldstyle: const TextStyle(color: AppColors.black, fontSize: 16),
+                          fillColor: AppColors.white,
+                          border: OutlineInputBorder(
+                              borderSide: BorderSide.none
                           ),
-                          style: const TextStyle(color: Colors.black),
                         ),
                         SizedBox(height: 2.h),
-                        const Text(
-                          'State',
-                          style: TextStyle(color: Colors.grey, fontSize: 16),
-                        ),
-                         TextField(
+                        CustomTextFormField(
                           controller: controller.stateController,
-                          decoration: const InputDecoration(
-                            border: OutlineInputBorder(
-                                borderSide: BorderSide.none
-                            ),
-                            hintText: 'State',
-                            hintStyle: TextStyle(color: Colors.grey),
-                            suffixStyle: TextStyle(color: Colors.black,fontSize: 18) ,
-                            filled: true,
-                            fillColor: Colors.white,
+                          label: 'State',
+                          width: 85.w,
+                          height: 6.h,
+                          hintText: "State",
+                          fieldstyle: const TextStyle(color: AppColors.black, fontSize: 16),
+                          fillColor: AppColors.white,
+                          border: OutlineInputBorder(
+                              borderSide: BorderSide.none
                           ),
-                          style: const TextStyle(color: Colors.black),
                         ),
                         SizedBox(height: 2.h),
-                        const Text(
-                          'Zip Code',
-                          style: TextStyle(color: Colors.grey, fontSize: 16),
-                        ),
-                         TextField(
+                        CustomTextFormField(
                           controller: controller.zipController,
-                          decoration: const InputDecoration(
-                            border: OutlineInputBorder(
-                                borderSide: BorderSide.none
-                            ),
-                            hintText: 'Zip Code',
-                            hintStyle: TextStyle(color: Colors.grey),
-                            suffixStyle: TextStyle(color: Colors.black,fontSize: 18) ,
-                            filled: true,
-                            fillColor: Colors.white,
+                          label: 'Zip code',
+                          width: 85.w,
+                          height: 6.h,
+                          hintText: "Zip code",
+                          fieldstyle: const TextStyle(color: AppColors.black, fontSize: 16),
+                          fillColor: AppColors.white,
+                          border: OutlineInputBorder(
+                              borderSide: BorderSide.none
                           ),
-                          style: const TextStyle(color: Colors.black),
                         ),
                         SizedBox(height: 2.h),
-                        const Text(
-                          'City',
-                          style: TextStyle(color: Colors.grey, fontSize: 16),
-                        ),
-                         TextField(
+                        CustomTextFormField(
                           controller: controller.cityController,
-                          decoration: const InputDecoration(
-                            border: OutlineInputBorder(
-                                borderSide: BorderSide.none
-                            ),
-                            hintText: 'City',
-                            hintStyle: TextStyle(color: Colors.grey),
-                            suffixStyle: TextStyle(color: Colors.black,fontSize: 18) ,
-                            filled: true,
-                            fillColor: Colors.white,
+                          label: 'City',
+                          width: 85.w,
+                          height: 6.h,
+                          hintText: "City",
+                          fieldstyle: const TextStyle(color: AppColors.black, fontSize: 16),
+                          fillColor: AppColors.white,
+                          border: OutlineInputBorder(
+                              borderSide: BorderSide.none
                           ),
-                          style: const TextStyle(color: Colors.black),
                         ),
                         SizedBox(height: 2.h),
-                        const Text(
-                          'Country',
-                          style: TextStyle(color: Colors.grey, fontSize: 16),
-                        ),
-                         TextField(
+                        CustomTextFormField(
                           controller: controller.countryController,
-                          decoration: const InputDecoration(
-                            border: OutlineInputBorder(
-                                borderSide: BorderSide.none
-                            ),
-                            hintText: 'Country',
-                            hintStyle: TextStyle(color: Colors.grey),
-                            suffixStyle: TextStyle(color: Colors.black,fontSize: 18) ,
-                            filled: true,
-                            fillColor: Colors.white,
+                          label: 'Country',
+                          width: 85.w,
+                          height: 6.h,
+                          hintText: "Country",
+                          fieldstyle: const TextStyle(color: AppColors.black, fontSize: 16),
+                          fillColor: AppColors.white,
+                          border: OutlineInputBorder(
+                              borderSide: BorderSide.none
                           ),
-                          style: const TextStyle(color: Colors.black),
                         ),
                         SizedBox(height: 2.h),
                         Center(
                           child: ElevatedButton(
                             onPressed: () {},
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.black,
+                              backgroundColor: AppColors.black,
                               foregroundColor: Colors.white,
                               fixedSize: Size(80.w, 5.h), // 70% width, 6% height
-                              shape: const BeveledRectangleBorder(side: BorderSide(color: Colors.red, width: 1)),
+                              shape: const BeveledRectangleBorder(side: BorderSide(color: AppColors.red, width: 1)),
                             ),
                             child: const Text('Submit'),
                           ),

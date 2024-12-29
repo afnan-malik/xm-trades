@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
+import 'package:xm_trades/app/config/color.dart';
 
 class custom_Invest_Plans extends StatelessWidget {
   final String title;
@@ -12,10 +13,10 @@ class custom_Invest_Plans extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 40.h,
+      height: 38.h,
       width: 90.w,
       decoration: BoxDecoration(
-        color: Colors.black,
+        color: AppColors.black,
         borderRadius: BorderRadius.circular(10),
         boxShadow: [
           BoxShadow(
@@ -57,14 +58,17 @@ class custom_Invest_Plans extends StatelessWidget {
             SizedBox(height: 6.h),
             Center(
               child: ElevatedButton(
-                onPressed: onPress,
-                child: Text('Get it Now'),
+                onPressed:onPress,
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.white,
-                  padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
-                  textStyle: TextStyle(fontSize: 16),
+                  backgroundColor: AppColors.black,
+                  foregroundColor: Colors.white,
+                  fixedSize: Size(40.w, 5.h), // 70% width, 6% height
+                  shape: const BeveledRectangleBorder(
+                      side: BorderSide(color: AppColors.red, width: 1)),
                 ),
-              ),
+                child:
+                    const Text('Get it now'),
+                ),
             ),
           ],
         ),

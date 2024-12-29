@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';
+import 'package:xm_trades/app/config/color.dart';
 import 'package:xm_trades/app/routes/app_pages.dart'; // Import the sizer package
 
 class CustomDrawer extends StatelessWidget {
@@ -18,7 +19,7 @@ class CustomDrawer extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(12.0),
               child: DrawerHeader(
-                decoration: const BoxDecoration(color: Colors.white),
+                decoration:  const BoxDecoration(color: AppColors.white),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -31,7 +32,7 @@ class CustomDrawer extends StatelessWidget {
                     Text(
                       'ACCOUNT BALANCE',
                       style: TextStyle(
-                        color: Colors.black,
+                        color: AppColors.black,
                         fontSize: 2.2.h,
                         fontWeight: FontWeight.bold,
                       ),
@@ -75,27 +76,27 @@ class CustomDrawer extends StatelessWidget {
                       Get.toNamed(Routes.DEPOSIT);
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.black,
-                      foregroundColor: Colors.white,
-                      fixedSize: Size(70.w, 6.h), // 70% of screen width and 6% of screen height
+                      backgroundColor: AppColors.black,
+                      foregroundColor: AppColors.white,
+                      fixedSize: Size(55.w, 5.h), // 70% of screen width and 6% of screen height
                       shape:  BeveledRectangleBorder(
                         borderRadius: BorderRadius.circular(2),
-                          side: BorderSide(color: Colors.red, width: 1)),
+                          side: BorderSide(color: AppColors.red, width: 1)),
                     ),
                     child: const Text('Deposit'),
                   ),
-                  SizedBox(height: 2.h),
+                  SizedBox(height: 1.5.h),
                   ElevatedButton(
                     onPressed: () {
                       Get.toNamed(Routes.WITH_DRAW);
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.red,
-                      foregroundColor: Colors.white,
-                      fixedSize: Size(70.w, 6.h), // 70% width, 6% height
+                      backgroundColor: AppColors.red,
+                      foregroundColor: AppColors.white,
+                      fixedSize: Size(55.w, 5.h), // 70% width, 6% height
                       shape: BeveledRectangleBorder(
                           borderRadius: BorderRadius.circular(2),
-                          side: BorderSide(color: Colors.black, width: 1)),
+                          side: BorderSide(color: AppColors.black, width: 1)),
                     ),
                     child: const Text('Withdraw'),
                   ),
@@ -106,7 +107,7 @@ class CustomDrawer extends StatelessWidget {
             // Menu Items
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.all(12.0),
+                padding: const EdgeInsets.only(left: 12.0,right: 12.0),
                 child: ListView(
                   children: [
                     DrawerItem(
@@ -185,10 +186,10 @@ class DrawerItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      leading: Icon(icon, color: Colors.grey),
+      leading: Icon(icon, color: AppColors.grey),
       title: Text(
         label,
-        style: TextStyle(color: Colors.black, fontSize: 2.h, fontWeight: FontWeight.bold), // Using sizer for font size
+        style: TextStyle(color: AppColors.black, fontSize: 2.h, fontWeight: FontWeight.bold), // Using sizer for font size
       ),
       onTap: onTap,
     );
