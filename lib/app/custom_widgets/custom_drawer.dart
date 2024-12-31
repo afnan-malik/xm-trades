@@ -24,7 +24,7 @@ class CustomDrawer extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Image.asset(
-                      'assets/xm_logo.webp', // Add your logo path
+                      'assets/images/xm_logo.webp', // Add your logo path
                       height: 6.h, // Use sizer for responsive height
                       width: 6.h, // Adjust width based on height for a square
                     ),

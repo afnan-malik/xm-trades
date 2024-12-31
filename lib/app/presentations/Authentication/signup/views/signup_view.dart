@@ -20,13 +20,14 @@ class SignupView extends GetView<SignupController> {
         init: SignupController(),
         builder: (context) {
           return Scaffold(
+            backgroundColor: Colors.red.shade900,
             resizeToAvoidBottomInset: false, // Prevents automatic resizing
             body: Stack(
               fit: StackFit.expand,
               children: [
                 Positioned.fill(
                   child: Image.asset(
-                    "assets/register.png",
+                    "assets/images/register.png",
                     fit: BoxFit.cover,
                   ),
                 ),

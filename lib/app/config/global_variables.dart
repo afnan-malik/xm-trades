@@ -6,6 +6,7 @@ class Globals {
   static String userProfile = '';
   static String token = '';
   static String bio = '';
+  static int? referralUserId;
   static String profileImage = '';
   static String refreshToken = '';
   static String googleIdToken = '';

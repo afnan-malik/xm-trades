@@ -1,7 +1,7 @@
 class APIEndPoint{
-  static String get baseUrl =>"https://.com/";
+  static String get baseUrl =>"https://aasonline.co/";
 
   ///authentication
-  static String get loginUrl =>"";
+  static String get loginUrl =>"api/login";
   static String get signUpUrl =>"";
 }

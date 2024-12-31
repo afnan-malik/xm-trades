@@ -11,7 +11,7 @@ class SplashScreenView extends GetView<SplashScreenController> {
     return GetBuilder<SplashScreenController>(
         init: SplashScreenController(),
         builder: (c) {
-          return  Column(children: [Expanded(child: Image.asset('assets/xmsplash.png',fit: BoxFit.cover,))]);
+          return  Column(children: [Expanded(child: Image.asset('assets/images/xmsplash.png',fit: BoxFit.cover,))]);
         });
   }
 }

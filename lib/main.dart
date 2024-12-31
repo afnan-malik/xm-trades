@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:sizer/sizer.dart';  // Import Sizer package
 
+import 'app/data/providers/local_storage/local_db.dart';
 import 'app/routes/app_pages.dart';
 
-void main() {
+ void main() async {
+  Get.put(LocalDB());
+  await LocalDB().initDeviceInfo();
   runApp(
     Sizer(
       builder: (context, orientation, deviceType) {
